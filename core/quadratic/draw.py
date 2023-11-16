@@ -7,15 +7,15 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from optfuncs import *
 from logic import sqMethod
 
-def func(num):
-    if num == 0:
-        return rosenbrock_2
-    elif num == 1:
-        return himmelblau_2
-    elif num == 2:
-        return hypersphere_2
-    else:
-        return rastrigin_2
+# def func(num):
+#     if num == 0:
+#         return rosenbrock_2
+#     elif num == 1:
+#         return himmelblau_2
+#     elif num == 2:
+#         return hypersphere_2
+#     else:
+#         return rastrigin_2
 
 class MainApp(QMainWindow):
     x1 = y1 = num = 0
@@ -43,7 +43,7 @@ class MainApp(QMainWindow):
         x_cs = []
         y_cs = []
         z_cs = []
-        for i, point in sqMethod(res_x, res_y,self.num):
+        for i, point in sqMethod(res_x, res_y):
             x_cs.append(point[0])
             y_cs.append(point[1])
             z_cs.append(point[2])
