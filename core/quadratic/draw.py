@@ -85,6 +85,14 @@ class PlotCanvas(FigureCanvas):
         y = np.linspace(0, 2, 10)
         X, Y = np.meshgrid(x, y)
         Z = himmelblau_2(X,Y)
+        # if  self.num == 0:
+        #     Z = rosenbrock_2(X,Y)
+        # elif self.num == 1:
+        #     Z = himmelblau_2(X,Y)
+        # elif self.num == 2:
+        #     Z = hypersphere_2(X,Y)
+        # else:
+        #     Z = rastrigin_2(X,Y)
         my_cmap = plt.get_cmap('cool')
         self.axes.plot_surface(X, Y, Z, cmap=my_cmap, edgecolor='none')
 
@@ -93,6 +101,6 @@ for i in sys.argv:
     args.append(i)
 
 app = QApplication(sys.argv)
-mainApp = MainApp(int(args[1]),int(args[2]),float(args[3])) # 2 2 0.5
+mainApp = MainApp(int(args[1]),int(args[2]),float(args[3])) # x1 y1 func_num // example 2 2 1
 mainApp.show()
 sys.exit(app.exec_())
