@@ -1,6 +1,6 @@
 import random
 from operator import itemgetter
-from quadratic.optfuncs import *
+from optfuncs import *
 
 
 class AIS:

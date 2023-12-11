@@ -1,8 +1,7 @@
 from operator import itemgetter
 
-from core.gradient.optfuncs import rosenbrock_2
-from core.lab4 import PSO
-from core.lab6 import AIS
+from lab4 import PSO
+from lab6 import AIS
 
 
 class HybridAlgorithm:
@@ -54,35 +53,3 @@ class HybridAlgorithm:
         ais_best_solution = min(self.ais.agents, key=itemgetter(2))
         return ais_best_solution
 
-
-def callback_func(epoch, iter_data):
-    print(f"Iteration {epoch + 1}:")
-    for iteration_data in iter_data:
-        for x, y, z in iteration_data:
-            print(f"x: {x}, y: {y}, z: {z}")
-    print()
-
-
-# Пример использования гибридного алгоритма
-hybrid_algo = HybridAlgorithm(
-    func=rosenbrock_2,
-    population=20,
-    position_x=5,
-    position_y=5,
-    fi_p=3.0,
-    fi_g=2.0,
-    target_fitness=0.000001,
-    pso_to_ais_ratio=0.3,
-    num_agents=10,
-    num_clones=5,
-    num_elite=2,
-    num_elite_clones=3,
-    x_range=5,
-    y_range=5,
-    mutation_coefficient=0.1,
-    callback_func=callback_func
-)
-
-
-result = hybrid_algo.run(num_iterations=1000)
-print("Optimal solution:", result)
